@@ -16,26 +16,27 @@
         id
         , create_time, create_by, update_time, update_by, status, account, pwd, avatar
     </sql>
+
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
         select
         <include refid="Base_Column_List"/>
         from work_user
         where id = #{id,jdbcType=BIGINT}
     </select>
+
+    <select id="login" resultMap="BaseResultMap" parameterType="com.wzh.workstation.entity.WorkUser">
+        select <include refid="Base_Column_List"/>
+        from work_user
+        where account = #{account} and pwd = #{pwd}
+    </select>
+
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
         delete
         from work_user
         where id = #{id,jdbcType=BIGINT}
     </delete>
+
     <insert id="insert" parameterType="com.wzh.workstation.entity.WorkUser">
-        insert into work_user (id, create_time, create_by,
-                               update_time, update_by, status,
-                               account, pwd, avatar)
-        values (#{id,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR},
-                #{updateTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT},
-                #{account,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, #{avatar,jdbcType=VARCHAR})
-    </insert>
-    <insert id="insertSelective" parameterType="com.wzh.workstation.entity.WorkUser">
         insert into work_user
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">

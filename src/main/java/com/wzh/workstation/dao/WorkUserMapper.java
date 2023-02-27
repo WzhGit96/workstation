@@ -9,9 +9,15 @@ public interface WorkUserMapper {
 
     int insert(WorkUser record);
 
-    int insertSelective(WorkUser record);
-
     WorkUser selectByPrimaryKey(Long id);
+
+    /**
+     * 登录方法
+     *
+     * @param workUser
+     * @return
+     */
+    WorkUser login(WorkUser workUser);
 
     int updateByPrimaryKeySelective(WorkUser record);
 

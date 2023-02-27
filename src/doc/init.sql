@@ -1,0 +1,16 @@
+-- 1.用户信息表
+CREATE TABLE work_user(
+	id BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT COMMENT 'id',
+	create_time DATETIME NOT NULL DEFAULT NOW() COMMENT '创建时间',
+	create_by VARCHAR(16) NOT NULL DEFAULT '' COMMENT '创建人',
+	update_time DATETIME COMMENT '更新时间',
+	update_by VARCHAR(16) NOT NULL DEFAULT '' COMMENT '更新人',
+	`status` TINYINT NOT NULL DEFAULT 0 COMMENT '状态',
+	`account` VARCHAR(16) NOT NULL COMMENT '账户',
+	pwd VARCHAR(128) NOT NULL COMMENT '密码',
+	avatar VARCHAR(128) COMMENT '用户头像'
+)ENGINE = INNODB CHARACTER SET = UTF8MB4 COMMENT ='用户信息表';
+
+-- 创建索引
+CREATE INDEX work_user_ni1 ON work_user(`account`, pwd);
+

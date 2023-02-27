@@ -123,3 +123,9 @@ logging:
 
 mybatis:
   mapper-locations: classpath*:mapper/*Mapper.xml
+
+wzhframework:
+  encrypt:
+    rsa2:
+      public-key:
+      private-key:
