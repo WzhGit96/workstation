@@ -1,15 +1,12 @@
 package com.wzh.workstation.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.sun.istack.internal.NotNull;
 import org.wzhframework.workstation.common.dto.GenericDTO;
 
 public class WorkProjectReqDTO extends GenericDTO {
-    @NotNull
     @JsonProperty("page")
     private Integer pageNo;
 
-    @NotNull
     @JsonProperty("rows")
     private Integer pageSize;
 
