@@ -6,7 +6,7 @@
     <result column="uid" property="uid" jdbcType="BIGINT" />
     <result column="code" property="code" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="branchs" property="branchs" javaType="VARCHAR" />
+    <result column="branchs" property="branchs" jdbcType="VARCHAR" />
     <result column="project_link" property="projectLink" jdbcType="VARCHAR" />
     <result column="pkg_seq" property="pkgSeq" jdbcType="VARCHAR" />
     <result column="archery_script" property="archeryScript" jdbcType="VARCHAR" />
