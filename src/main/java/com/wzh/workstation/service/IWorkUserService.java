@@ -24,5 +24,7 @@ public interface IWorkUserService {
      * @param reqBO
      * @return
      */
-    RegisterRspBO register(RegisterReqBO reqBO);
+    void register(RegisterReqBO reqBO) throws Exception;
+
+    LoginRspBO validateLogin();
 }

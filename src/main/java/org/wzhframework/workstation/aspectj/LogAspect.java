@@ -35,6 +35,7 @@ import org.wzhframework.workstation.utils.IdGen;
 import org.wzhframework.workstation.utils.IpUtil;
 import org.wzhframework.workstation.utils.SqlUtil;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -97,7 +98,7 @@ public class LogAspect {
         return obj;
     }
 
-    @Around("execution(public * com.wzh.workstation.dao..*(..))")
+    //@Around("execution(public * com.wzh.workstation.dao..*(..))")
     public Object databaseLog(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         GenericDTO genericDTO = (GenericDTO) RequestGenericContextHolder.getContext();
         GenericDataBaseDTO dataBaseDTO = new GenericDataBaseDTO();

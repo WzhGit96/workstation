@@ -1,6 +1,7 @@
 package org.wzhframework.workstation.exception.domain;
 
 import org.wzhframework.workstation.common.MsgEntity;
+import org.wzhframework.workstation.common.msg.MsgEnum;
 
 /**
  * 业务异常
@@ -20,6 +21,13 @@ public class ServiceException extends RuntimeException {
     public ServiceException(String code, String msg) {
         this.code = code;
         this.msg = msg;
+    }
+
+    public static void isTrue(boolean condition, String msg) {
+        if (condition) {
+            return;
+        }
+        throwServiceException(MsgEnum.SYSTEM_ERROR.code, msg);
     }
 
     public static void throwServiceException() {

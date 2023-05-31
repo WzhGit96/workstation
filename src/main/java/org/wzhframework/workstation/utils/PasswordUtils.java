@@ -13,7 +13,7 @@ public final class PasswordUtils {
         super();
     }
 
-    private static final String AES_KEY = "workstation@2023_pwd_aeskey";
+    private static final String AES_KEY = "workstation@2023";
 
     /**
      * 加密
@@ -28,6 +28,6 @@ public final class PasswordUtils {
             throw new NullPointerException("encrypt key can not be blank");
         }
         String encryptString = AesUtils.encrypt(src, key);
-        return DigestUtils.sha1Hex(encryptString);
+        return DigestUtils.sha512Hex(encryptString);
     }
 }

@@ -32,7 +32,7 @@ public class GlobalExceptionHandler {
     public GenericRspDTO<?> handleException(Exception e, HttpServletRequest request) throws JsonProcessingException {
         String requestURI = request.getRequestURI();
         log.error("请求地址'{}',发生系统异常.", requestURI, e);
-        GenericRspDTO<?> rspDTO = (GenericRspDTO<?>) RequestGenericContextHolder.getContext();
+        GenericRspDTO<?> rspDTO = new GenericRspDTO<>();
         rspDTO.setCode(MsgEnum.SYSTEM_ERROR.code);
         rspDTO.setMsg(MsgEnum.SYSTEM_ERROR.msg);
         log.info(toJson(rspDTO));
@@ -41,7 +41,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(ServiceException.class)
     public GenericRspDTO<?> handleServiceException(ServiceException e) throws JsonProcessingException {
-        GenericRspDTO<?> rspDTO = (GenericRspDTO<?>) RequestGenericContextHolder.getContext();
+        GenericRspDTO<?> rspDTO = new GenericRspDTO<>();
         rspDTO.setCode(e.getCode());
         rspDTO.setMsg(e.getMsg());
         log.info(toJson(rspDTO));

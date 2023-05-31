@@ -1,10 +1,6 @@
-package com.wzh.workstation.bo;
+package com.wzh.workstation.dto;
 
-/**
- * @author wzh
- * @since 2023/2/27
- */
-public class LoginRspBO {
+public class LoginRspDTO {
     private Boolean success;
 
     private String uid;
@@ -23,13 +19,5 @@ public class LoginRspBO {
 
     public void setUid(String uid) {
         this.uid = uid;
-    }
-
-    @Override
-    public String toString() {
-        return "LoginRspBO{" +
-                "success=" + success +
-                ", uid='" + uid + '\'' +
-                '}';
     }
 }
